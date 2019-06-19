@@ -1,0 +1,123 @@
+/*table作业：理解并填充自己的代码
+**/ 
+#include <iostream>
+using namespace std;
+public class Cell{
+public:
+  Cell(char *con){
+  	content=con;
+  }
+  Cell(int i){
+  	content=i;
+  }
+  ~Cell(){
+  }
+  show(){
+  	cout<<content<<endl;
+  }
+private:
+  string content;
+};
+
+class Table {
+public:
+	Table(){
+		row=0;
+		column=0;
+	}
+	Table(int a,int b){
+		row=a;
+		column=b;
+	} 
+	~Table();
+    void show(){
+    	cout<<"行数"<<row<<"\t"<<"列数"<<column<<endl;
+    	cells.show();
+	}
+    int addRow(){
+    	row+=1;
+    	return 0;
+	}
+    void delRow(int n){
+    	row=row-n;
+	}
+    int addColumn(){
+    	column-=1;
+    	return 0;
+	}
+    void delColumn(int n){
+    	column-=n;
+	}
+	void set(int a,int b,int c){
+		cells.Cell(c);
+		row=a;
+		column=b;
+	}
+	void set(int a,int b,string s){
+		cells.Cell(s);
+		row=a;
+		column=b;
+	}
+private:
+    Cell cells;
+    int row; 
+	int column;
+
+};
+
+
+
+int main() {
+
+  Table tb;
+
+  tb.show();
+
+  tb.addRow();
+
+  tb.show();
+
+  tb.addColumn();
+
+  tb.show();
+
+  Table tb1(5,5);
+
+  tb1.show();
+
+  tb1.set(1,1,30);
+
+  tb1.set(2,2,"hello");
+
+  tb1.show();
+
+  tb1.delRow(1);
+
+  tb1.show();
+
+  tb1.delColumn(1);
+
+  tb1.show();
+
+  return 0;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
